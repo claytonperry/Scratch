@@ -1,5 +1,10 @@
 set_wd('~/') #set your working directory ie the place you want to write the final file
 
+install.packages('plyr')
+install.packages('googledrive')
+install.packages('googlesheets4')
+install.packages('readxl')
+
 library(plyr)
 library(googledrive)
 library(googlesheets4)
