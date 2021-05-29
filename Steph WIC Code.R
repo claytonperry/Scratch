@@ -16,7 +16,7 @@ gs4_auth() #respond to prompt in console before continuing
 
 columns <- read_sheet(ss = '1MMfmHSoEBb1_Wmr0ncTMNhsD_3t5-GVe4dlQz7ukwJI')
 
-WIC_files <- drive_find(pattern = 'Lowes') 
+WIC_files <- drive_find(q = "name contains 'Lowes*'") 
 
 WIC_list <- list()
 
@@ -80,9 +80,11 @@ WIC_set <- do.call('rbind',WIC_list) %>%
 #columns that contain nulls:
 names(which(colSums(is.na(WIC_set)) > 0))
 
-set_wd('~/') #set your working directory ie the place you want to write the final file
+setwd('~/') #set your working directory ie the place you want to write the final file
 
 write.csv(WIC_set,'WIC_set.csv')
+
+
 
 #temp <- tempfile(fileext = '.xlsx')
 #dl <- drive_download(
